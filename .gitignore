@@ -1,0 +1,20 @@
+# Whitelist
+*
+
+!.gitignore
+!flake.nix
+!flake.lock
+
+!home/
+!home/**
+
+!modules/
+!modules/**
+
+!dotfiles/
+!dotfiles/**
+
+# any additonal docs
+!README.md
+!docs/
+!docs/**
