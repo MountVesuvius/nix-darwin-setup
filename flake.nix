@@ -41,6 +41,7 @@
         {
           # The platform the configuration will be used on.
           nixpkgs.hostPlatform = "aarch64-darwin";
+          nixpkgs.config.allowUnfree = true;
 
           # System Mappings
           # system.defaults requires you to set the primaryUser
@@ -111,6 +112,7 @@
           # to be an issue where they don't install correctly with home manager
           environment.systemPackages = with pkgs; [
             ghostty-bin
+            discord
           ];
 
           # TODO: Consider moving this out of system install into user space
