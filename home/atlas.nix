@@ -8,6 +8,7 @@
   imports = [
     ../modules/neovim.nix
     ../modules/zsh.nix
+    ../modules/ssh.nix
   ];
 
   # User-level packages (what used to be environment.systemPackages)
@@ -25,10 +26,18 @@
     nix-direnv.enable = true;
   };
 
+
   # Git Settings
   programs.git = {
     enable = true;
     settings.user.email = "119111598+MountVesuvius@users.noreply.github.com"; # it's not much but i guess
     settings.user.name = "MountVesuvius";
+
+    includes = [
+      {
+        condition = "gitdir:~/Work/";
+        path = "~/.gitconfig-work";
+      }
+    ];
   };
 }
