@@ -24,6 +24,15 @@
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
+    silent = true; # Tells direnv to shut up
+    # Don't have to `direnv allow` in this specific path
+    config = {
+      whitelist = {
+        prefix = [
+          "~/Projects"
+        ];
+      };
+    };
   };
 
 
