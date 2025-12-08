@@ -18,6 +18,7 @@
     git
     tree
     fzf
+    localsend
   ];
 
   # Instant dev shells
@@ -44,6 +45,7 @@
 
     includes = [
       {
+        # this is for the git user details to be updated in work dir
         condition = "gitdir:~/Work/";
         path = "~/.gitconfig-work";
       }

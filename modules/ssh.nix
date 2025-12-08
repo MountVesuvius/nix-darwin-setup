@@ -13,19 +13,13 @@
     '';
 
     matchBlocks = {
-      # Personal
       "github.com" = {
         hostname = "github.com";
         user = "git";
         identityFile = "~/.ssh/id_ed25519";
       };
-
-      # Work
-      "work-host" = {
-        user = "git";
-        identityFile = "~/.ssh/id_ed25519_work";
-        identitiesOnly = true;
-      };
+      
+      # Any work accounts handled in `work-secrets`
     };
   };
 }
