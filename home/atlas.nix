@@ -19,6 +19,7 @@
     tree
     fzf
     localsend
+    lazydocker
   ];
 
   # Instant dev shells
