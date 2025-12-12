@@ -62,6 +62,7 @@ end
 local function setup(server, opts)
   opts = opts or {}
   opts.on_attach = opts.on_attach or on_attach
+  opts.autostart = false
 
   -- Use nvim-lspconfig's built-in defaults for `server`,
   -- then extend them via vim.lsp.config
@@ -70,6 +71,16 @@ local function setup(server, opts)
 end
 
 return {
+  {
+    "actionshrimp/direnv.nvim",
+    opts = {
+      async = true,
+      on_direnv_finished = function()
+        -- You probably also want to pair this with `autostart = false` in any `lspconfig` calls - see 'LSP config examples' below!
+        vim.cmd("LspStart")
+      end
+    }
+  },
   {
     "neovim/nvim-lspconfig",
     dependencies = {
