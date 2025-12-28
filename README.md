@@ -31,3 +31,17 @@ secondly you need the gitfile at root called `.gitconfig-work`:
 ```
 
 the rest is already setup in the nix config. any extra profiles can be easily and quickly copy/pasted
+
+
+## ssh
+need to fix this error:
+
+```
+warning: atlas profile: `programs.ssh` default values will be removed in the future.
+Consider setting `programs.ssh.enableDefaultConfig` to false,
+and manually set the default values you want to keep at
+`programs.ssh.matchBlocks."*"`.
+```
+
+## nix in general
+need to check how the generations are stored, and look into garbage collecting them

@@ -113,6 +113,8 @@
           environment.systemPackages = with pkgs; [
             ghostty-bin
             discord
+            postman
+            # spotify https://github.com/NixOS/nixpkgs/issues/465676
           ];
 
           # TODO: Consider moving this out of system install into user space

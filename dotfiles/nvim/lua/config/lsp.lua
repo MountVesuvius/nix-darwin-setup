@@ -1,0 +1,147 @@
+-- -- trying to use built ins a bit more
+-- local function on_attach(client, bufnr)
+--   -- Make sure LSP omnifunc is actually set for this buffer
+--   vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
+--
+--   -- Enable Neovim 0.11 built-in LSP completion (optional auto-popup)
+--   vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = false })
+-- end
+--
+-- local function clean_format()
+--   vim.lsp.buf.format({})
+--   vim.lsp.buf.code_action({
+--     apply = true,
+--     context = {
+--       only = { "source.fixAll" },
+--       diagnostics = {},
+--     },
+--   })
+-- end
+--
+-- -- keymaps
+-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+-- vim.keymap.set("n", "K", function()
+--   vim.lsp.buf.hover({ border = "rounded" })
+-- end, {})
+-- vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, {})
+--
+-- -- Actions
+-- vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
+-- vim.keymap.set("n", "<leader>cf", clean_format, {})
+--
+-- -- Diagnostics next/prev
+-- vim.keymap.set("n", "<leader>ih", function()
+--   vim.diagnostic.jump({ float = true, count = -1, wrap = true })
+-- end, {})
+-- vim.keymap.set("n", "<leader>in", function()
+--   vim.diagnostic.jump({ float = true, count = 1, wrap = true })
+-- end, {})
+--
+-- -- vim.api.nvim_create_autocmd("TermOpen", {
+-- --   callback = function()
+-- --     -- vim.keymap.set('n', '<CR>', require('pathfinder').gf)
+-- --     vim.keymap.set("n", "<CR>", "<cmd>tabedit <cfile><cr>")
+-- --   end,
+-- -- })
+--
+--
+-- vim.lsp.config('*', {
+--   root_markers = { '.git' }
+-- })
+--
+-- -- Typescript
+-- vim.lsp.config('ts_ls', {
+--   cmd = { 'typescript-language-server', '--stdio' },
+--   filetypes = {
+--     'javascript',
+--     'javascriptreact',
+--     'typescript',
+--     'typescriptreact',
+--     'vue',
+--   },
+--   on_attach = on_attach,
+-- })
+-- vim.lsp.enable('ts_ls')
+--
+-- -- Vue
+-- local tsc = vim.fn.exepath("tsc")
+-- local tsdk = nil
+--
+-- if tsc ~= "" then
+--   tsdk = tsc:gsub("/bin/tsc$", "/lib/node_modules/typescript/lib")
+-- end
+--
+-- vim.lsp.config("vue_ls", {
+--   cmd = { "vue-language-server", "--stdio" },
+--   filetypes = { "vue" },
+--   root_markers = { "package.json", "tsconfig.json", ".git" },
+--   init_options = {
+--     typescript = {
+--       tsdk = tsdk,
+--     },
+--   },
+--   on_attach = on_attach,
+-- })
+-- vim.lsp.enable("vue_ls")
+--
+-- vim.lsp.config("nil", {
+--   cmd = { 'nil' },
+--   filetypes = { 'nix' },
+--   root_markers = { 'flake.nix', '.git' },
+-- })
+-- vim.lsp.enable("nil")
+--
+--
+-- vim.lsp.config('eslint', {
+--   cmd = { 'vscode-eslint-language-server', '--stdio' },
+--   filetypes = {
+--     'javascript',
+--     'javascriptreact',
+--     'javascript.jsx',
+--     'typescript',
+--     'typescriptreact',
+--     'typescript.tsx',
+--     'vue',
+--     'svelte',
+--     'astro',
+--     'htmlangular',
+--   },
+-- })
+-- vim.lsp.enable('eslint')
+--
+-- vim.lsp.config('lua_ls', {
+--   settings = {
+--     Lua = {
+--       runtime = { version = "LuaJIT" },
+--       diagnostics = { globals = { "vim" } },
+--       workspace = { checkThirdParty = false },
+--       telemetry = { enable = false },
+--     },
+--   },
+-- })
+-- vim.lsp.enable('lua_ls')
+--
+--
+-- -- Minimal gopls config for Neovim 0.11+
+-- vim.lsp.config("gopls", {
+--   cmd = { "gopls" },
+--   filetypes = { "go", "gomod", "gowork", "gotmpl" },
+--
+--   -- root_markers is supported in 0.11's new config API
+--   root_markers = { "go.work", "go.mod", ".git" },
+--
+--   settings = {
+--     gopls = {
+--       gofumpt = true,
+--       staticcheck = true,
+--       analyses = {
+--         unusedparams = true,
+--         nilness = true,
+--         unusedwrite = true,
+--         useany = true,
+--       },
+--     },
+--   },
+-- })
+--
+-- vim.lsp.enable("gopls")

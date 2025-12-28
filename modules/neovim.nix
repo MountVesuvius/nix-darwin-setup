@@ -12,22 +12,23 @@
       fd
 
       # LSP servers
+      vimPlugins.nvim-lspconfig
       lua-language-server
       typescript-language-server
       nodePackages.typescript # tsc – required by TS LS
       nodePackages.eslint # used by eslint LSP
+      vscode-langservers-extracted
+      angular-language-server
+      vscode-css-languageserver
+      tailwindcss-language-server
+      emmet-language-server
       gopls
       sqls
       clang-tools # provides `clangd`
+      vue-language-server
 
       nil
       nixfmt-rfc-style
-
-      # Optional: formatters etc.
-      # stylua
-      # nodePackages.prettier
-      # shfmt
-      # gofumpt
     ];
   };
 

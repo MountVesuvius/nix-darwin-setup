@@ -39,7 +39,8 @@ end
 -- Issues this has:
 -- Can't toggle twice in a session because of overwrites
 -- Does'n save state between sessions
-vim.g.current_layout = vim.g.current_layout or 'lily'
+-- vim.g.current_layout = vim.g.current_layout or 'lily'
+vim.g.current_layout = vim.g.current_layout or 'laptop'
 
 local function apply_layout()
   if vim.g.current_layout == 'lily' then
