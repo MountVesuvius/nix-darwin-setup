@@ -47,9 +47,9 @@
     settings.user.name = "MountVesuvius";
 
     extraConfig = {
-      merge = {
-        ff = false;
-      };
+      # merge = {
+      #   ff = true;
+      # };
     };
 
     lfs.enable = true;

@@ -7,8 +7,27 @@ vim.lsp.enable("sqls")
 vim.lsp.enable("clangd")
 vim.lsp.enable("nil_ls")
 vim.lsp.enable("cssls")
-vim.lsp.enable("tailwindcss")
+-- vim.lsp.enable("tailwindcss")
 vim.lsp.enable("emmet_ls")
+
+-- vim.lsp.config('basedpyright', {
+-- settings = {
+--     -- fluff for one project
+--     basedpyright = {
+--       analysis = {
+--         autoSearchPaths = true,
+--         useLibraryCodeForTypes = true,
+--         extraPaths = {
+--           "./test-bench/apps/frappe",
+--           "./test-bench/apps/erpnext",
+--           "./custom_fields_app" 
+--         },
+--       },
+--     },
+--   },
+-- })
+--
+-- vim.lsp.enable('basedpyright')
 
 local function clean_format()
   vim.lsp.buf.format({})

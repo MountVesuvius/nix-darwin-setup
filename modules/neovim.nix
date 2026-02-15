@@ -26,6 +26,7 @@
       sqls
       clang-tools # provides `clangd`
       vue-language-server
+      basedpyright
 
       nil
       nixfmt-rfc-style

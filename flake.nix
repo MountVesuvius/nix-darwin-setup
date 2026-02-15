@@ -111,7 +111,8 @@
           # TODO: Currently installing GUI applications here because there seems
           # to be an issue where they don't install correctly with home manager
           environment.systemPackages = with pkgs; [
-            ghostty-bin
+            # this is having weird power issues
+            # ghostty-bin
             discord
             postman
             # spotify https://github.com/NixOS/nixpkgs/issues/465676
@@ -123,6 +124,10 @@
             casks = [
               "hammerspoon"
               "orion"
+              "figma"
+              "spotify"
+              "actual"
+              "unnaturalscrollwheels"
             ];
           };
         };
