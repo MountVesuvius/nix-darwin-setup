@@ -9,6 +9,7 @@
     ../modules/neovim.nix
     ../modules/zsh.nix
     ../modules/ssh.nix
+    ../modules/aerospace.nix
   ];
 
   # User-level packages (what used to be environment.systemPackages)

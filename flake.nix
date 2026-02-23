@@ -22,6 +22,10 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    homebrew-aerospace = {
+      url = "github:nikitabobko/homebrew-tap";
+      flake = false;
+    };
   };
 
   outputs =
@@ -33,6 +37,7 @@
       nix-homebrew,
       homebrew-core,
       homebrew-cask,
+      homebrew-aerospace,
       ...
     }:
     let
@@ -124,10 +129,12 @@
             casks = [
               "hammerspoon"
               "orion"
+              "brave-browser"
               "figma"
               "spotify"
               "actual"
               "unnaturalscrollwheels"
+              "nikitabobko/tap/aerospace"
             ];
           };
         };
@@ -166,6 +173,7 @@
               taps = {
                 "homebrew/homebrew-core" = homebrew-core;
                 "homebrew/homebrew-cask" = homebrew-cask;
+                "nikitabobko/tap" = homebrew-aerospace;
               };
 
               # Enable fully-declarative tap management
