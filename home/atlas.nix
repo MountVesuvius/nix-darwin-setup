@@ -22,6 +22,10 @@
     localsend
     lazydocker
     awscli2
+    claude-code
+    exiftool
+    gdb
+    ghidra
   ];
 
   # Instant dev shells

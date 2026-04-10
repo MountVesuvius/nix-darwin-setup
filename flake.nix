@@ -2,8 +2,8 @@
 # Used for installations system wide that should be available constantly
 {
   description = "Base Nix-Darwin Flake";
-
-  inputs = {
+  
+   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -72,6 +72,16 @@
             trackpad.TrackpadRotate = true;
           };
 
+          # Disable Spotlight Cmd+Space shortcut
+          system.activationScripts.postActivation.text = ''
+            defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 '
+              <dict>
+                <key>enabled</key>
+                <false/>
+              </dict>
+            '
+          '';
+
           # FIX: This doesn't work, I just manually changed it in system settings
           # I'm not sure why, but it seems to be a well known bug
           # https://github.com/nix-darwin/nix-darwin/issues/905
@@ -135,6 +145,8 @@
               "actual"
               "unnaturalscrollwheels"
               "nikitabobko/tap/aerospace"
+              "dolphin"
+              "raycast"
             ];
           };
         };
@@ -177,7 +189,7 @@
               };
 
               # Enable fully-declarative tap management
-              mutableTaps = false;
+              mutableTaps = false; # nikitabobko/tap sometimes has issues with this
             };
           }
           (
