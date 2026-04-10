@@ -15,8 +15,8 @@
       vimPlugins.nvim-lspconfig
       lua-language-server
       typescript-language-server
-      nodePackages.typescript # tsc – required by TS LS
-      nodePackages.eslint # used by eslint LSP
+      typescript # tsc – required by TS LS
+      eslint # used by eslint LSP
       vscode-langservers-extracted
       angular-language-server
       vscode-css-languageserver
@@ -27,6 +27,7 @@
       clang-tools # provides `clangd`
       vue-language-server
       basedpyright
+      terraform-ls # Terraform LSP
 
       nil
       nixfmt-rfc-style

@@ -2,6 +2,7 @@ local languages = {
   "bash",
   "c",
   "diff",
+  "hcl",
   "html",
   "javascript",
   "jsdoc",
@@ -12,6 +13,7 @@ local languages = {
   "luap",
   "markdown",
   "markdown_inline",
+  "nix",
   "printf",
   "python",
   "query",
@@ -24,31 +26,26 @@ local languages = {
   "xml",
   "yaml",
 }
-
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate", -- Automatically update parsers
-        event = { "BufReadPre", "BufNewFile" }, -- Load only when needed
+        branch = "main",
+        build = ":TSUpdate",
+        event = { "BufReadPre", "BufNewFile" },
+        main = "nvim-treesitter",  -- tell lazy.nvim the new module name
         opts = {
             ensure_installed = languages,
-            highlight = {
-                enable = true,
-                additional_vim_regex_highlighting = false
-            },
-            indent = { enable = true },
-            incremental_selection = {
-                enable = true,
-                -- keymaps = {
-                    -- init_selection = "<CR>",
-                    -- node_incremental = "<CR>",
-                    -- scope_incremental = "<S-CR>",
-                    --node_decremental = "<BS>",
-                -- },
-            },
         },
         config = function(_, opts)
-            require("nvim-treesitter.configs").setup(opts)
+            require("nvim-treesitter").setup(opts)
+
+            -- highlighting and indentation are now enabled via autocmds
+            vim.api.nvim_create_autocmd("FileType", {
+                callback = function()
+                    pcall(vim.treesitter.start)
+                    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+                end,
+            })
         end,
     }
 }

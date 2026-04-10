@@ -110,6 +110,8 @@ on-mode-changed = []
         activate
     end tell'
     '''
+
+    alt-b = 'exec-and-forget open -na "Brave Browser" --args --new-window'
     
     alt-enter = 'fullscreen'
 
