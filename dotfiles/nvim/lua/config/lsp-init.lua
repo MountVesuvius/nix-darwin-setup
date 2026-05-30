@@ -4,33 +4,14 @@ vim.lsp.config('*', { capabilities = capabilities })
 vim.lsp.enable("gopls")
 vim.lsp.enable("ts_ls")
 vim.lsp.enable("eslint")
-vim.lsp.enable("angularls")
-vim.lsp.enable("vue_ls")
-vim.lsp.enable("sqls")
 vim.lsp.enable("clangd")
 vim.lsp.enable("nil_ls")
 vim.lsp.enable("cssls")
--- vim.lsp.enable("tailwindcss")
 vim.lsp.enable("emmet_ls")
 
--- vim.lsp.config('basedpyright', {
--- settings = {
---     -- fluff for one project
---     basedpyright = {
---       analysis = {
---         autoSearchPaths = true,
---         useLibraryCodeForTypes = true,
---         extraPaths = {
---           "./test-bench/apps/frappe",
---           "./test-bench/apps/erpnext",
---           "./custom_fields_app" 
---         },
---       },
---     },
---   },
--- })
---
--- vim.lsp.enable('basedpyright')
+-- vim.lsp.enable("angularls")
+-- vim.lsp.enable("vue_ls")
+-- vim.lsp.enable("sqls")
 
 local function clean_format()
   vim.lsp.buf.format({})
@@ -44,7 +25,11 @@ local function clean_format()
 end
 
 -- keymaps
+local builtin = require("telescope.builtin")
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+vim.keymap.set("n", "gr", builtin.lsp_references, {})
+vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, {})
+
 vim.keymap.set("n", "K", function()
   vim.lsp.buf.hover({ border = "rounded" })
 end, {})

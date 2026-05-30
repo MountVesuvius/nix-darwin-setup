@@ -3,22 +3,36 @@ return {
         "tiagovla/tokyodark.nvim",
         opts = {
             terminal_colors = true,
-            lazy = false, -- Want it to instantly load
-            priority = 1000, -- Want it to load first
             gamma = 1,
         },
+        lazy = false,
+        priority = 1000,
         config = function(_, opts)
-            require("tokyodark").setup(opts) -- calling setup is optional
-            vim.cmd [[colorscheme tokyodark]]
+            require("tokyodark").setup(opts)
+            vim.cmd.colorscheme("tokyodark")
 
-            -- vim.cmd([[highlight Normal guibg=NONE]])
-            -- vim.cmd([[highlight NormalNC guibg=NONE]])
-            -- vim.cmd([[highlight EndOfBuffer guibg=NONE]])
+            vim.opt.cursorline = true
 
-            -- local opacity = 0.8
-            -- vim.api.nvim_set_hl(0, "Normal", {bg = "NONE", blend = math.floor((1 - opacity) * 100})
-            -- set(0, "Normal", {bg = "NONE", blend = math.floor((1 - opacity) * 100)})
-            -- set(0, "NormalFloat", {bg = "NONE", blend = math.floor((1 - opacity) * 100)})
+            vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
+            vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE" })
+            vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "NONE" })
+
+            vim.api.nvim_set_hl(0, "CursorLine", {
+                bg = "NONE",
+            })
+
+            vim.api.nvim_set_hl(0, "CursorLineNr", {
+                fg = "#7aa2f7",
+                bold = true,
+            })
+
+            vim.api.nvim_set_hl(0, "Visual", {
+                bg = "#32303C",
+            })
+
+            vim.api.nvim_set_hl(0, "ColorColumn", {
+                bg = "#1a1a1a",
+            })
         end,
-    }
+    },
 }
