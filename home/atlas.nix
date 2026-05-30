@@ -3,7 +3,7 @@
 # This is user level management. atm i don't have additional users so it's all here
 {
   home.username = "atlas";
-  home.stateVersion = "25.05";
+  home.stateVersion = "26.05";
 
   imports = [
     ../modules/neovim.nix
@@ -26,6 +26,9 @@
     exiftool
     gdb
     ghidra
+    ollama
+    subfinder
+    # ratty # one day...
   ];
 
   # Instant dev shells

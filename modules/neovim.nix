@@ -30,11 +30,19 @@
       terraform-ls # Terraform LSP
 
       nil
-      nixfmt-rfc-style
+      nixfmt
     ];
   };
 
-  # Symlink to dotfiles for nvim
-  xdg.configFile."nvim".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/nvim";
+  # # Symlink to dotfiles for nvim
+  # xdg.configFile."nvim".source =
+  #   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/nvim";
+
+  # xdg.configFile."nvim".source =
+  #   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/dotfiles/nvim";
+
+  home.activation.linkNvimConfig = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+    ln -sfn "${config.home.homeDirectory}/.config/dotfiles/dotfiles/nvim" \
+      "${config.home.homeDirectory}/.config/nvim"
+  '';
 }

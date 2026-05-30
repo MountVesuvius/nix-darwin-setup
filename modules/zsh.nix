@@ -6,6 +6,8 @@
 
     enableCompletion = true;
     syntaxHighlighting.enable = true;
+    autosuggestion.enable = true;
+    historySubstringSearch.enable = true;
 
     # Add shell aliases
     shellAliases = {
