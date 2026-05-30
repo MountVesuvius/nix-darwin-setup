@@ -1,3 +1,1 @@
-return {
-  'HawkinsT/pathfinder.nvim'
-}
+return { 'HawkinsT/pathfinder.nvim' }

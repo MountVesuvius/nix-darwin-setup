@@ -8,6 +8,7 @@ vim.lsp.enable("clangd")
 vim.lsp.enable("nil_ls")
 vim.lsp.enable("cssls")
 vim.lsp.enable("emmet_ls")
+vim.lsp.enable("lua_ls")
 
 -- vim.lsp.enable("angularls")
 -- vim.lsp.enable("vue_ls")
@@ -29,6 +30,10 @@ local builtin = require("telescope.builtin")
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 vim.keymap.set("n", "gr", builtin.lsp_references, {})
 vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, {})
+
+vim.keymap.set("n", "<leader>ds", builtin.lsp_document_symbols)
+vim.keymap.set("n", "<leader>ws", builtin.lsp_workspace_symbols)
+vim.keymap.set("n", "<leader>gb", builtin.git_branches)
 
 vim.keymap.set("n", "K", function()
   vim.lsp.buf.hover({ border = "rounded" })
