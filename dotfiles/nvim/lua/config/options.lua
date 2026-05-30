@@ -56,17 +56,9 @@ api.nvim_create_autocmd("FileType", {
     vim.opt_local.complete:append("kspell")
   end
 })
+
 vim.opt.fillchars:append({
     eob = " ",
-})
-
-api.nvim_create_autocmd("ColorScheme", {
-    callback = function()
-        vim.api.nvim_set_hl(0, "EndOfBuffer", {
-            fg = "NONE",
-            bg = "NONE",
-        })
-    end,
 })
 
 -- Idel timeout before things start to happen

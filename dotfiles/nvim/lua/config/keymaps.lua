@@ -1,44 +1,46 @@
-local opts = { noremap = true, silent = true }
-local map = vim.keymap.set
-
 vim.g.mapleader = " "
+local opts = { noremap = true, silent = true }
 
 -- Navigation
-map('', 'i', '<Up>')
-map('', 'j', '<Left>')
-map('', 'k', '<Down>')
-map('', 'h', 'i', opts) -- Swaps i & h
-map("n", "<C-h>", "<C-i>", opts) -- fixes the jumplist issue
+vim.keymap.set('', 'i', '<Up>')
+vim.keymap.set('', 'j', '<Left>')
+vim.keymap.set('', 'k', '<Down>')
+vim.keymap.set('', 'h', 'i', opts) -- Swaps i & h
+vim.keymap.set("n", "<C-h>", "<C-i>", opts) -- fixes the jumplist issue
 
 -- Split Movement
-map("n", "<C-i>", "<C-w>k", opts) -- up
-map("n", "<C-k>", "<C-w>j", opts) -- down
-map("n", "<C-j>", "<C-w>h", opts) -- left
-map("n", "<C-l>", "<C-w>l", opts) -- right
+vim.keymap.set("n", "<C-i>", "<C-w>k", opts) -- up
+vim.keymap.set("n", "<C-k>", "<C-w>j", opts) -- down
+vim.keymap.set("n", "<C-j>", "<C-w>h", opts) -- left
+vim.keymap.set("n", "<C-l>", "<C-w>l", opts) -- right
 
 -- Split control
-map("n", "<leader>sv", "<C-w>v", opts) -- Vertical split
-map("n", "<leader>sh", "<C-w>s", opts) -- Horizontal split
-map("n", "<leader>se", "<C-w>=", opts) -- Equalize splits
-map("n", "<leader>sx", ":close<CR>", opts) -- Close current split
+vim.keymap.set("n", "<leader>sv", "<C-w>v", opts) -- Vertical split
+vim.keymap.set("n", "<leader>sh", "<C-w>s", opts) -- Horizontal split
+vim.keymap.set("n", "<leader>se", "<C-w>=", opts) -- Equalize splits
+vim.keymap.set("n", "<leader>sx", ":close<CR>", opts) -- Close current split
 
 -- Tab movement 
-map("n", "<leader>kj", ":tabprevious<CR>", opts) -- Previous tab
-map("n", "<leader>kl", ":tabnext<CR>", opts) -- Next tab
+vim.keymap.set("n", "<leader>kj", ":tabprevious<CR>", opts) -- Previous tab
+vim.keymap.set("n", "<leader>kl", ":tabnext<CR>", opts) -- Next tab
 
 -- Tab control
-map("n", "<leader>to", ":tabnew<CR>", opts) -- Open new tab
-map("n", "<leader>tx", ":tabclose<CR>", opts) -- Close tab
+vim.keymap.set("n", "<leader>to", ":tabnew<CR>", opts) -- Open new tab
+vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", opts) -- Close tab
 
 -- Save on exit insert mode
-map("i", "<Esc>", "<Esc>:w<CR>", opts)
+vim.keymap.set("i", "<Esc>", "<Esc>:w<CR>", opts)
 
 -- Terminal Mode -> Normal Mode
-map("t", "<Esc>", "<C-\\><C-N>", opts)
+vim.keymap.set("t", "<Esc>", "<C-\\><C-N>", opts)
 
 -- Double <Esc> removes highlight
-map("n", "<Esc><Esc>", "<Esc>:nohlsearch<CR><Esc>", opts)
+vim.keymap.set("n", "<Esc><Esc>", "<Esc>:nohlsearch<CR><Esc>", opts)
 
 -- Increment and Decrement
-map("n", "<leader>=", "<C-a>", opts)
-map("n", "<leader>-", "<C-x>", opts)
+vim.keymap.set("n", "<leader>=", "<C-a>", opts)
+vim.keymap.set("n", "<leader>-", "<C-x>", opts)
+
+-- Native commenting (gc/gcc) is built into Neovim 0.10+
+vim.keymap.set("n", "<leader>cl", "gcc", { remap = true, silent = true })
+vim.keymap.set("x", "<leader>cl", "gc", { remap = true, silent = true })
