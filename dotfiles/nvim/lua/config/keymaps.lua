@@ -1,6 +1,10 @@
 vim.g.mapleader = " "
 local opts = { noremap = true, silent = true }
 
+-- Remove default treesitter node-selection mappings that conflict with i->Up
+pcall(vim.keymap.del, { 'x', 'o' }, 'in')
+pcall(vim.keymap.del, { 'x', 'o' }, 'an')
+
 -- Navigation
 vim.keymap.set('', 'i', '<Up>')
 vim.keymap.set('', 'j', '<Left>')

@@ -13,6 +13,7 @@
     shellAliases = {
       ll = "ls -la";
       v = "nvim";
+      ZZ = "exit";
     };
 
     # Environment variables
