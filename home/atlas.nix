@@ -28,6 +28,7 @@
     ghidra
     ollama
     subfinder
+    wireshark
     # ratty # one day...
   ];
 
